@@ -1,5 +1,5 @@
 # heic2jpg
-Convert HEIC image files to JPG image files using Python and ImageMagick
+Convert HEIC image files to JPG using Python and ImageMagick
 
 ## Requirements
 - Python
