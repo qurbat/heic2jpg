@@ -1,5 +1,5 @@
 # heic2jpg
-Recursive conversion of directories containing HEIC image files to JPG image files using ImageMagick
+Convert HEIC image files to JPG image files using Python and ImageMagick
 
 ## Requirements
 - Python
