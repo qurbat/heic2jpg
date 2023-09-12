@@ -6,7 +6,7 @@ def convert_heic_to_jpg(directory):
         for filename in files:
             if filename.lower().endswith(".heic"): 
                 print('Converting %s...' % os.path.join(root, filename))
-                subprocess.run(["magick.exe", "%s" % os.path.join(root, filename), "%s" % (filename[0:-5] + '.jpg')], cwd=root)
+                subprocess.run(["magick", "%s" % os.path.join(root, filename), "%s" % (filename[0:-5] + '.jpg')], cwd=root)
                 converted_files[os.path.join(root, filename)] = True
                 continue
 
