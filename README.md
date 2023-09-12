@@ -6,9 +6,9 @@ Convert HEIC image files to JPG using Python and ImageMagick
 - ImageMagick
 
 ## Usage
-I created this tool to work with `.HEIC` image files retrieved from a device running iOS.
+I created this tool to work with `.HEIC` image files retrieved from the backup of devices running iOS.
 
-The heic2jpg.py script should be copied to a directory containing subdirectories with `.HEIC` image files.
+The `heic2jpg.py` script can be copied to a directory containing `.HEIC` image files. The tool will look for images in subdirectories within the current working directory.
 
 ```
 python heic2jpg.py
