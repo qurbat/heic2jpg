@@ -1,6 +1,6 @@
-import os, subprocess
+import os, subprocess, argparse
 
-def convert_heic_to_jpg(directory):
+def convert_heic_to_jpg(directory, delete_heic):
     converted_files = {}
     for root, directories, files in os.walk(directory, topdown=True):
         for filename in files:
@@ -10,16 +10,18 @@ def convert_heic_to_jpg(directory):
                 converted_files[os.path.join(root, filename)] = True
                 continue
 
-    for filename, converted in converted_files.items():
-        if converted:
-            if os.path.exists(os.path.join(root, filename[0:-5] + '.jpg')):
+    if delete_heic:
+        for filename, converted in converted_files.items():
+            if converted:
                 os.remove(filename)
-            else:
-                print('[!] Error: Converted image %s was not written to disk. Check to see if ImageMagick has been installed properly and is currently in PATH.' % os.path.join(root, filename[0:-5] + '.jpg'))
 
 def main():
+    parser = argparse.ArgumentParser(description='Convert HEIC image files to JPG using ImageMagick.')
+    parser.add_argument('-d', '--delete', action='store_true', help='Delete HEIC files after conversion.')
+    args = parser.parse_args()
+
     directory = os.getcwd()
-    convert_heic_to_jpg(directory)
+    convert_heic_to_jpg(directory, args.delete)
 
 if __name__ == "__main__":
     main()
